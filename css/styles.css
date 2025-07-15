@@ -2,112 +2,153 @@
 
 /* Fonts */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding-bottom: 80px; /* space for nav */
-  }
-  
-  h1, h2, h3, header h5 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-  
-  h1, h2 {
-    font-weight: bold;
-  }
-  
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-/* Tech-style header */
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding-bottom: 80px; /* space for nav */
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, header h5 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Tech-style header with animated pixel grid */
 .tech-header {
-    background: repeating-linear-gradient(
-      135deg,
-      #ff6f61,
-      #ff6f61 20px,
-      #6a5acd 20px,
-      #6a5acd 40px
-    );
-    background-size: cover;
-    background-blend-mode: overlay;
-    border-bottom: 3px solid #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-  
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3rem;
+  color: white;
+  overflow: hidden;
+
+  background: linear-gradient(135deg,
+    #ff4ec8,
+    #ffd500,
+    #6e00ff,
+    #ff4ec8);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.tech-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('img/noise.png'); /* Adjust path */
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+
+
+.tech-header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.tech-header p {
+  text-align: left;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.card {
+  border: none;
+  border-radius: 0.1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #2a003f, #2a003f);
+  color: white;
+  padding: 1rem;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card:hover {
+  transform: none;
+}
+
+
+#topNavbar {
+  border-bottom: 1px solid #dee2e6;
+  z-index: 1030;
+}
+
+#topNavbar .nav-link {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+#topNavbar .nav-link.active {
+  font-weight: 700;
+  color: #2a003f !important;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #2a003f;
+  border-color: #2a003f;
+}
+
+.btn-primary:hover {
+  background-color: #ff4ec8;
+  border-color: #ff4ec8;
+}
+
+@media (max-width: 576px) {
   .tech-header h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    text-align: left;
-    text-transform: uppercase;
-    line-height: 1.2;
-    letter-spacing: 1px;
+    font-size: 2.5rem;
   }
-  
-  .tech-header p {
-    text-align: left;
-    font-weight: 500;
+
+  .card-text {
+    font-size: 0.9rem;
   }
-  
-  .card {
-    border: none;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+
+  .card-title {
+    font-size: 1rem;
   }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    object-fit: cover;
-    height: 200px;
-  }
-  
-  #topNavbar {
-    border-bottom: 1px solid #dee2e6;
-    z-index: 1030;
-  }
-  
-  #topNavbar .nav-link {
-    color: #6c757d;
-    font-weight: 500;
-  }
-  
-  #topNavbar .nav-link.active {
-    font-weight: 700;
-    color: #6a5acd !important;
-    text-decoration: underline;
-  }
-  
-  .btn-primary {
-    background-color: #6a5acd;
-    border-color: #6a5acd;
-  }
-  
-  .btn-primary:hover {
-    background-color: #5848c2;
-    border-color: #5848c2;
-  }
-  
-  @media (max-width: 576px) {
-    .tech-header h1 {
-        font-size: 2.5rem;
-      }
-    
-  
-    .card-text {
-      font-size: 0.9rem;
-    }
-  
-    .card-title {
-      font-size: 1rem;
-    }
-  }
-  
+}
