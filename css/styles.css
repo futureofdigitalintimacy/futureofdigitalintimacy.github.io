@@ -135,8 +135,8 @@ section {
 }
 
 .btn-primary:hover {
-  background-color: #ff4ec8;
-  border-color: #ff4ec8;
+  background-color: #6e00ff;
+  border-color: #6e00ff;
 }
 
 @media (max-width: 576px) {
